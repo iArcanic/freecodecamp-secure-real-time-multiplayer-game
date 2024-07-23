@@ -20,6 +20,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Mitigate the risk of Cross Site Scripting (XSS) attacks
 app.use(helmet.xssFilter());
 
+// Hide the X-Powered-By header
+app.use(helmet.hidePoweredBy({ setTo: "PHP 7.4.3" }));
+
 //For FCC testing purposes and enables user to connect from outside the hosting platform
 app.use(cors({ origin: "*" }));
 
